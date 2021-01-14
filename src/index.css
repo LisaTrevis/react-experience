@@ -1,13 +1,219 @@
-body {
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --clr-accent: rgb(82, 38, 185);
+  --clr-btn: rgb(150, 124, 211);
+  --clr-words: rgb(84, 83, 85);
+  --clr-bkgd: rgb(223, 212, 250);
+  --transition: all 0.2s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: var(var(--max-width));
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*  global classes */
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 5rem auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+/*
+=============== 
+Jobs
+===============
+*/
+
+body {
+  background-color: var(--clr-bkgd);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: var(--clr-words);
+}
+
+.title {
+  margin: 3rem auto;
+  text-align: center;
+  color: var(--clr-accent);
+}
+
+.center {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.job-btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-accent);
+  font-size: 1.25rem;
+  letter-spacing: var(--spacing);
+  margin: 0 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  outline-color: var(--clr-accent);
+}
+
+.job-btn:hover {
+  box-shadow: -5px 0 var(--clr-accent);
+}
+
+.active-btn {
+  background: white;
+}
+
+.job-info h3 {
+  font-weight: 400;
+}
+
+.job-info h4 {
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0.375rem 0;
+  border-radius: var(--radius);
+}
+
+.job-date {
+  letter-spacing: var(--spacing);
+}
+
+.job-desc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.job-desc p {
+  margin-bottom: 0;
+}
+
+.job-icon {
+  color: var(--clr-accent);
+}
+
+@media screen and (min-width: 992px) {
+  .center {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 4rem;
+  }
+  .btn-container {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .job-btn {
+    margin-bottom: 1rem;
+  }
+  .active-btn {
+    background: white;
+    outline-color: var(--clr-accent);
+  }
+  .job-btn:hover {
+    box-shadow: -5px 0 var(--clr-accent);
+  }
 }

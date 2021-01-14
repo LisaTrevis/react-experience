@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import jobs from "./jobs";
 
 function App() {
+  const [value, setValue] = useState(0);
+
+  const { title, company, dates, duties } = jobs[value];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <section className="section">
+        <h2 className="title">Experience</h2>
+        <div className="center">
+          <div className="btn-container">
+            {jobs.map((job, index) => {
+              return (
+                <button
+                  key={job.id}
+                  onClick={() => setValue(index)}
+                  className={`job-btn ${index === value && "active-btn"}`}
+                >
+                  {job.company}
+                </button>
+              );
+            })}
+          </div>
+          <article className="job-info">
+            <h3>{title}</h3>
+            <h4>{company}</h4>
+            <p className="job-date">{dates}</p>
+            {duties.map((duty, index) => {
+              return (
+                <div key={index} className="job-desc">
+                  <FaStar className="job-icon"></FaStar>
+                  <p>{duty}</p>
+                </div>
+              );
+            })}
+          </article>
+        </div>
+      </section>
     </div>
   );
 }
